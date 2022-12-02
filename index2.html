@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Agency - Start Bootstrap Theme</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        
+        <h2 class="text-uppercase">Maior e Menor</h2>
+        <br>
+        <br>
+        
+        Números 
+        <input type="text" id="txtNumeros">
+        <input type="button" value="Maior" onclick="verificarMaior()">
+        <input type="button" value="Menor" onclick="verificarMenor()">
+        <input type="button" value="Mostrar Todos" onclick="mostrarTodos()">
+        <br>
+        <br>
+        <h2 id="Numeros"></h2>
+        <br>
+        <br>
+        <br>
+        <script>
+            
+            function verificarMaior() {
+                                        var resultado = document.querySelector('#Numeros')
+                                        numeros = document.getElementById("txtNumeros").value;
+                                        numeros = numeros.split(",");
+                                        var maior = parseInt(numeros[0]);
+                                        for (i = 1; i < numeros.length; i++) {
+                                            if (parseInt(numeros[i]) > maior) {
+                                                maior = parseInt(numeros[i]);
+                                            }
+                                        }
+                                        resultado.innerHTML = "O maior número é " + maior;
+                                    }
+
+                                    function verificarMenor() {
+                                        var resultado = document.querySelector('#Numeros')
+                                        numeros = document.getElementById("txtNumeros").value;
+                                        numeros = numeros.split(",");
+                                        var menor = parseInt(numeros[0]);
+                                        for (i = 1; i < numeros.length; i++) {
+                                            if (parseInt(numeros[i]) < menor) {
+                                                menor = parseInt(numeros[i]);
+                                            }
+                                        }
+                                        resultado.innerHTML = "O menor número é " + menor;
+                                    }
+
+                                    function mostrarTodos() {
+                                        var resultado = document.querySelector('#Numeros')
+                                        numeros = document.getElementById("txtNumeros").value;
+                                        resultado.innerHTML = numeros;
+                                    }
+                                
+        </script>
+
+
+
+<h2 class="text-uppercase">Progressão Aritmética</h2>
+<br>
+<br>
+<p>valor inicial:</p>
+<input type="number" id="Vi">
+<p>valor final:</p>
+<input type="number" id="Vf">
+<p>razão:</p>
+<input type="number" id="Rz">
+<br>
+<br>
+<button onclick="PAC()">PA Crescente</button>
+<button onclick="PAD()">PA Decrescente</button>
+<br>    
+<span id="pa"></span>
+<script>
+    
+    function PAC() {
+
+var inicial = parseInt(document.getElementById('Vi').value);
+var final = parseInt(document.getElementById('Vf').value);
+var razao = parseInt(document.getElementById('Rz').value);
+var pa = '';
+var termo = 1
+
+for (var i = inicial; i <= final; i += razao) {
+    pa += termo + "° termo = " + inicial + "<br />";
+    inicial += razao;
+    termo = termo + 1
+}
+document.getElementById('pa').innerHTML = pa;
+}
+
+function PAD() {
+var inicial = parseInt(document.getElementById('Vi').value);
+var final = parseInt(document.getElementById('Vf').value);
+var razao = parseInt(document.getElementById('Rz').value);
+
+var pa = '';
+var termo = 1
+
+for (var i = inicial; i >= final; i -= razao) {
+    pa += termo + "° termo = " + inicial + "<br />";
+    inicial -= razao;
+    termo = termo + 1
+}
+document.getElementById('pa').innerHTML = pa;
+}
+
+</script>
+
+      </body>
+    </html>
